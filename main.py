@@ -40,7 +40,7 @@ def haversine_distance(lat1, lng1, lat2, lng2):
     return R_EARTH * c
 
 # Reduce the step size for greater precision
-step = 0.01  # Reduced from 0.1
+step = 0.04  # Reduced from 0.1
 
 def get_postcodes_in_radius(center_lat, center_lng, radius):
     postcodes = set()
@@ -78,6 +78,9 @@ for range_name, radius in ranges.items():
     postcodes = get_postcodes_in_radius(lat, lng, radius) - all_postcodes
     all_postcodes.update(postcodes)
     results[range_name] = ', '.join(postcodes)
+
+    # Print the results as they are obtained
+    print(f"{range_name}: {results[range_name]}")
 
 df = pd.DataFrame(list(results.items()), columns=["Range", "Postcodes"])
 df.to_excel("postcodes.xlsx", index=False, engine='openpyxl')
