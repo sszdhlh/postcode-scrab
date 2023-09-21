@@ -1,7 +1,7 @@
 import pandas as pd
 
 # Read the excel file
-df = pd.read_excel("qld-postcode.xlsx", engine='openpyxl')
+df = pd.read_excel("vic-postcode.xlsx", engine='openpyxl')
 
 # From left to right, remove duplicates
 for col_index, col_name in enumerate(df.columns[:-1]):  # We exclude the last column because there's no column to its right
@@ -34,7 +34,7 @@ max_length = max(df_cleaned.count())
 df_cleaned = df_cleaned.reindex(range(max_length))
 
 # Save the modified dataframe back to Excel
-df_cleaned.to_excel("qld-postcode_modified.xlsx", index=False, engine='openpyxl')
+df_cleaned.to_excel("vic-postcode_modified.xlsx", index=False, engine='openpyxl')
 
 
 
