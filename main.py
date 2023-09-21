@@ -40,7 +40,7 @@ def haversine_distance(lat1, lng1, lat2, lng2):
     return R_EARTH * c
 
 # Reduce the step size for greater precision
-step = 0.05  # Reduced from 0.1
+step = 0.01  # Reduced from 0.1
 
 def get_postcodes_in_radius(center_lat, center_lng, radius):
     postcodes = set()
